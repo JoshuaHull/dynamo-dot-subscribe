@@ -1,0 +1,15 @@
+{
+  "name": "rxjs-dynamo-client-v3",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "rimraf ./src/ && tsc"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.6.1",
+    "rxjs": "^6.6.6"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "typescript": "^4.1.3"
+  }
+}
