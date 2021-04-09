@@ -1,6 +1,7 @@
 dependencies:
   '@aws-sdk/client-dynamodb': 3.11.0
   '@rush-temp/rxjs-dynamo-client-v3': file:projects/rxjs-dynamo-client-v3.tgz
+  '@types/node': 14.14.37
   rimraf: 3.0.2
   rxjs: 6.6.7
   typescript: 4.2.3
@@ -558,6 +559,10 @@ packages:
       node: '>= 10.0.0'
     resolution:
       integrity: sha512-4kJrG2FAn5cFYN6UdTAOWZYX6OBxYRBMwanN75Rx2JTKvTbilpQYSAUc3K1/TOCgTVzM5HZOvOH4A91PRPPcDw==
+  /@types/node/14.14.37:
+    dev: false
+    resolution:
+      integrity: sha512-XYmBiy+ohOR4Lh5jE379fV2IU+6Jn4g5qASinhitfyO71b/sCo6MKsMLF5tc7Zf2CE8hViVQyYSobJNke8OvUw==
   /balanced-match/1.0.2:
     dev: false
     resolution:
@@ -692,18 +697,21 @@ packages:
   file:projects/rxjs-dynamo-client-v3.tgz:
     dependencies:
       '@aws-sdk/client-dynamodb': 3.11.0
+      '@types/node': 14.14.37
       rimraf: 3.0.2
       rxjs: 6.6.7
       typescript: 4.2.3
     dev: false
     name: '@rush-temp/rxjs-dynamo-client-v3'
     resolution:
-      integrity: sha512-lZe83OdLweIvpLt/FWidfB4oJWmKFKW5Q3QLIdusxAbTyk56P89G9hIBTll9+KfGFadXlFzyITpgfk76AW7+ng==
+      integrity: sha512-xRLrkj63u1BP6NjCHUo0ylwP3XAKMgs/xIZOTAHGwTFF6YiiuYyG13g/9qGCYrBf8MRNG2LJqLe1O10iB/W72Q==
       tarball: file:projects/rxjs-dynamo-client-v3.tgz
     version: 0.0.0
+registry: ''
 specifiers:
   '@aws-sdk/client-dynamodb': ^3.6.1
   '@rush-temp/rxjs-dynamo-client-v3': file:./projects/rxjs-dynamo-client-v3.tgz
+  '@types/node': ^14.14.37
   rimraf: ^3.0.2
   rxjs: ^6.6.6
   typescript: ^4.1.3
