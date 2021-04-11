@@ -7,6 +7,7 @@
   "nodeSupportedVersionRange": ">=15.2.0",
   "gitPolicy": {
   },
+  "projectFolderMaxDepth": 3,
   "repository": {
   },
   "eventHooks": {
@@ -21,11 +22,11 @@
   "projects": [
     {
       "packageName": "observable-dynamo-client-v3",
-      "projectFolder": "clients/observable-dynamo-client-v3"
+      "projectFolder": "src/clients/observable-dynamo-client-v3"
     },
     {
       "packageName": "rxjs-dynamo-client-v3",
-      "projectFolder": "clients/rxjs-dynamo-client-v3"
+      "projectFolder": "src/clients/rxjs-dynamo-client-v3"
     }
   ]
 }
