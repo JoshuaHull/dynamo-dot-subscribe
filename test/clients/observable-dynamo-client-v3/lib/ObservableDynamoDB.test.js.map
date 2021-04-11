@@ -1,0 +1,1 @@
+{"version":3,"file":"ObservableDynamoDB.test.js","sourceRoot":"","sources":["../src/ObservableDynamoDB.test.ts"],"names":[],"mappings":";AAEE,IAAI,CAAC,EAAE,EAAE,GAAG,EAAE,GAAE,CAAC,CAAC,CAAC","sourcesContent":["\r\n\r\n  test('', () => {});\r\n"]}
