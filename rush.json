@@ -25,6 +25,10 @@
       "projectFolder": "src/clients/observable-dynamo-client-v3"
     },
     {
+      "packageName": "test-observable-dynamo-client-v3",
+      "projectFolder": "test/clients/observable-dynamo-client-v3"
+    },
+    {
       "packageName": "rxjs-dynamo-client-v3",
       "projectFolder": "src/clients/rxjs-dynamo-client-v3"
     }
