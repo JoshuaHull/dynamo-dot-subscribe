@@ -20,6 +20,10 @@
   ],
   "projects": [
     {
+      "packageName": "observable-dynamo-client-v3",
+      "projectFolder": "clients/observable-dynamo-client-v3"
+    },
+    {
       "packageName": "rxjs-dynamo-client-v3",
       "projectFolder": "clients/rxjs-dynamo-client-v3"
     }
