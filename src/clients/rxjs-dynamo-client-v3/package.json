@@ -1,7 +1,7 @@
 {
   "name": "rxjs-dynamo-client-v3",
   "version": "0.0.0",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "build": "rimraf ./lib/ && tsc"
   },
