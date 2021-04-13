@@ -1,0 +1,18 @@
+{
+  "name": "dynamo-dot-subscribe",
+  "version": "0.0.0",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "rimraf ./lib/ && tsc"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.6.1",
+    "rxjs": "^6.6.7",
+    "observable-dynamo-client-v3": "~0.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.37",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.1.3"
+  }
+}
