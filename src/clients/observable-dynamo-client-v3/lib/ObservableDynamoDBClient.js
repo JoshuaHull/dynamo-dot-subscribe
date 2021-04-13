@@ -22,11 +22,16 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ObservableDynamoDBClient = void 0;
 const client_dynamodb_1 = require("@aws-sdk/client-dynamodb");
-const Client_1 = require("./Client");
-class ObservableDynamoDBClient extends Client_1.Client {
+const rxjs_1 = require("rxjs");
+class ObservableDynamoDBClient {
     constructor(config) {
-        const resolved = new client_dynamodb_1.DynamoDBClient(config).config;
-        super(resolved);
+        this.client = new client_dynamodb_1.DynamoDBClient(config);
+    }
+    get config() {
+        return this.client.config;
+    }
+    send(args, options) {
+        return rxjs_1.from(this.client.send(args, options));
     }
 }
 exports.ObservableDynamoDBClient = ObservableDynamoDBClient;

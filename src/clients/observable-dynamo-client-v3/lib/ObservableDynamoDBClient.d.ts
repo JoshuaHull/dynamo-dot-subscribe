@@ -1,6 +1,8 @@
-import { DynamoDBClientConfig, ServiceInputTypes, ServiceOutputTypes } from '@aws-sdk/client-dynamodb';
-import { HttpHandlerOptions as __HttpHandlerOptions } from '@aws-sdk/types';
-import { Client } from './Client';
-export declare class ObservableDynamoDBClient extends Client<__HttpHandlerOptions, ServiceInputTypes, ServiceOutputTypes> {
+import { DynamoDBClientConfig, DynamoDBClientResolvedConfig } from '@aws-sdk/client-dynamodb';
+import { Observable } from 'rxjs';
+export declare class ObservableDynamoDBClient {
+    private client;
+    get config(): DynamoDBClientResolvedConfig;
     constructor(config: DynamoDBClientConfig);
+    send(args: any, options: any): Observable<any>;
 }
