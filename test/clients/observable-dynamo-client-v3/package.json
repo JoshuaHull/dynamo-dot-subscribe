@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rimraf ./lib/ && tsc",
-    "test": "jest lib"
+    "test": "rush build && jest lib"
   },
   "dependencies": {
     "observable-dynamo-client-v3": "~0.0.0",

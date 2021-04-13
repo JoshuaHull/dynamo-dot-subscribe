@@ -35,6 +35,9 @@ import {
   CreateGlobalTableCommand,
   CreateGlobalTableCommandInput,
   CreateGlobalTableCommandOutput,
+  CreateTableCommandInput,
+  CreateTableCommandOutput,
+  CreateTableCommand,
   DeleteBackupCommand,
   DeleteBackupCommandInput,
   DeleteBackupCommandOutput,
@@ -258,6 +261,13 @@ export class ObservableDynamoDB extends ObservableDynamoDBClient {
     options?: CreateGlobalTableCommandOptions
   ): Observable<CreateGlobalTableCommandOutput> {
     return this.send(new CreateGlobalTableCommand(args), options);
+  }
+
+  public createTable(
+    args: CreateTableCommandInput,
+    options?: CreateTableCommandOptions
+  ): Observable<CreateTableCommandOutput> {
+    return this.send(new CreateTableCommand(args), options);
   }
 
   public deleteBackup(

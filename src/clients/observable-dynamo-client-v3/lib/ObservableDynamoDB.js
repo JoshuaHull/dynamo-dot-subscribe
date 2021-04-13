@@ -39,6 +39,9 @@ class ObservableDynamoDB extends ObservableDynamoDBClient_1.ObservableDynamoDBCl
     createGlobalTable(args, options) {
         return this.send(new client_dynamodb_1.CreateGlobalTableCommand(args), options);
     }
+    createTable(args, options) {
+        return this.send(new client_dynamodb_1.CreateTableCommand(args), options);
+    }
     deleteBackup(args, options) {
         return this.send(new client_dynamodb_1.DeleteBackupCommand(args), options);
     }
