@@ -5,7 +5,7 @@
     "name": "Joshua Hull",
     "url": "https://github.com/JoshuaHull"
   },
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "lib/index.js",
   "scripts": {
     "build": "rimraf ./lib/ && tsc"

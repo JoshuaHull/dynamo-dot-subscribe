@@ -12,7 +12,7 @@
     "test": "rush build && jest lib"
   },
   "dependencies": {
-    "@dynamo-dot-subscribe/observable-dynamo": "~0.0.0",
+    "@dynamo-dot-subscribe/observable-dynamo": "~1.0.0",
     "rxjs": "~6.6.7"
   },
   "devDependencies": {
