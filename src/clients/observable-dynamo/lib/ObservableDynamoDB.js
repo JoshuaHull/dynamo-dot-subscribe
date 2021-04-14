@@ -175,7 +175,7 @@ class ObservableDynamoDB extends ObservableDynamoDBClient_1.ObservableDynamoDBCl
         return this.send(new client_dynamodb_1.UpdateTimeToLiveCommand(args), options);
     }
     destroy() {
-        this.destroy();
+        super.destroy();
     }
 }
 exports.ObservableDynamoDB = ObservableDynamoDB;

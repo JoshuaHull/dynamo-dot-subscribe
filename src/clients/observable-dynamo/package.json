@@ -1,5 +1,10 @@
 {
-  "name": "observable-dynamo-client-v3",
+  "name": "@dynamo-dot-subscribe/observable-dynamo",
+  "author": {
+    "email": "josh.hull.w@gmail.com",
+    "name": "Joshua Hull",
+    "url": "https://github.com/JoshuaHull"
+  },
   "version": "0.0.0",
   "main": "lib/index.js",
   "scripts": {

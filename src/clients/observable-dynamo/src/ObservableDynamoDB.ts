@@ -579,6 +579,6 @@ export class ObservableDynamoDB extends ObservableDynamoDBClient {
   }
 
   destroy(): void {
-    this.destroy();
+    super.destroy();
   }
 }

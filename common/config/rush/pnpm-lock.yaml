@@ -1,8 +1,8 @@
 dependencies:
   '@aws-sdk/types': 3.12.0
   '@rush-temp/dynamo-dot-subscribe': file:projects/dynamo-dot-subscribe.tgz
-  '@rush-temp/observable-dynamo-client-v3': file:projects/observable-dynamo-client-v3.tgz
-  '@rush-temp/test-observable-dynamo-client-v3': file:projects/test-observable-dynamo-client-v3.tgz
+  '@rush-temp/observable-dynamo': file:projects/observable-dynamo.tgz
+  '@rush-temp/observable-dynamo-tests': file:projects/observable-dynamo-tests.tgz
   '@types/jest': 26.0.22
   '@types/node': 14.14.37
   jest: 26.6.3
@@ -1442,12 +1442,6 @@ packages:
       '@babel/core': ^7.0.0
     resolution:
       integrity: sha512-YvdtlVm9t3k777c5NPQIv6cxFFFapys25HiUmuSgHwIZhfifweR5c5Sf5nwE3MAbfu327CYSvps8Yx6ANLyleQ==
-  /babel/6.23.0:
-    deprecated: In 6.x, the babel package has been deprecated in favor of babel-cli. Check https://opencollective.com/babel to support the Babel maintainers
-    dev: false
-    hasBin: true
-    resolution:
-      integrity: sha1-0NHn2APpdHZb7qMjLU4VPA77kPQ=
   /balanced-match/1.0.2:
     dev: false
     resolution:
@@ -4595,47 +4589,44 @@ packages:
     dev: false
     name: '@rush-temp/dynamo-dot-subscribe'
     resolution:
-      integrity: sha512-l09KIP10T4+efRGQXQu6A1hlnNeMk89u2sLV1OpcZLD2slmZb4VPtpZxRSSQmSpXfgkk01i4hI47Y9j+vbAfBw==
+      integrity: sha512-M8PnUr0yG5dRJfujolxKZ+BEEm9aT6u7UhDfwLNCOQQ36LAUv4E4BRNMcUfAi60emAf/0fOticwf1Kui9KIPmQ==
       tarball: file:projects/dynamo-dot-subscribe.tgz
     version: 0.0.0
-  file:projects/observable-dynamo-client-v3.tgz:
+  file:projects/observable-dynamo-tests.tgz:
     dependencies:
-      '@aws-sdk/client-dynamodb': 3.12.0
-      '@aws-sdk/smithy-client': 3.12.0
-      '@aws-sdk/types': 3.12.0
-      '@types/node': 14.14.37
-      rimraf: 3.0.2
-      rxjs: 6.6.7
-      typescript: 4.2.3
-    dev: false
-    name: '@rush-temp/observable-dynamo-client-v3'
-    resolution:
-      integrity: sha512-GBLSVsJ3ZDsPFybOYVhsyXtEfqrRYdieQyZp2Jsnx+eqWESXJ6K0OTpBxX5lId1BK0vwrElcX6OF53Tr0c3pNA==
-      tarball: file:projects/observable-dynamo-client-v3.tgz
-    version: 0.0.0
-  file:projects/test-observable-dynamo-client-v3.tgz:
-    dependencies:
-      '@babel/core': 7.13.15
       '@types/jest': 26.0.22
       '@types/node': 14.14.37
-      babel: 6.23.0
       jest: 26.6.3
       rimraf: 3.0.2
       rxjs: 6.6.7
       ts-jest: 26.5.4_jest@26.6.3+typescript@4.2.3
       typescript: 4.2.3
     dev: false
-    name: '@rush-temp/test-observable-dynamo-client-v3'
+    name: '@rush-temp/observable-dynamo-tests'
     resolution:
-      integrity: sha512-9U+9Cp64d55VPUWpa3SoUH2PAWOyKaChssjBtt7zyzEj6CD6r4Rb9/QCds6y6ZnWMmWxqjmK/3szsQ0MLBF1rg==
-      tarball: file:projects/test-observable-dynamo-client-v3.tgz
+      integrity: sha512-YgvseRgcLzC9A9nN1GyraxQP/YgpiD46nYLFezvo+CjaAF8yAO7V2luc7OCrZZ0uzpHD6nTSBZB+s2cLJ020kA==
+      tarball: file:projects/observable-dynamo-tests.tgz
+    version: 0.0.0
+  file:projects/observable-dynamo.tgz:
+    dependencies:
+      '@aws-sdk/client-dynamodb': 3.12.0
+      '@aws-sdk/types': 3.12.0
+      '@types/node': 14.14.37
+      rimraf: 3.0.2
+      rxjs: 6.6.7
+      typescript: 4.2.3
+    dev: false
+    name: '@rush-temp/observable-dynamo'
+    resolution:
+      integrity: sha512-o6VrAmf7P2hWF9NB2sUKlsc5K7EYJRnKSkCjyGWQ/cXff+s1FJ/qfnI1RNsmsouL58a5pn2ll0T6jBHiSO58KA==
+      tarball: file:projects/observable-dynamo.tgz
     version: 0.0.0
 registry: ''
 specifiers:
   '@aws-sdk/types': ^3.12.0
   '@rush-temp/dynamo-dot-subscribe': file:./projects/dynamo-dot-subscribe.tgz
-  '@rush-temp/observable-dynamo-client-v3': file:./projects/observable-dynamo-client-v3.tgz
-  '@rush-temp/test-observable-dynamo-client-v3': file:./projects/test-observable-dynamo-client-v3.tgz
+  '@rush-temp/observable-dynamo': file:./projects/observable-dynamo.tgz
+  '@rush-temp/observable-dynamo-tests': file:./projects/observable-dynamo-tests.tgz
   '@types/jest': ^26.0.22
   '@types/node': ^14.14.37
   jest: ^26.6.3
