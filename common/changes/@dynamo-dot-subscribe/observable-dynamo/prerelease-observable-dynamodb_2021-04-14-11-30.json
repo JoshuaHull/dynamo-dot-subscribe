@@ -1,0 +1,11 @@
+{
+  "changes": [
+    {
+      "packageName": "@dynamo-dot-subscribe/observable-dynamo",
+      "comment": "Version 1 of the Observable DynamoDB Client",
+      "type": "major"
+    }
+  ],
+  "packageName": "@dynamo-dot-subscribe/observable-dynamo",
+  "email": "josh.hull.w@gmail.com"
+}
