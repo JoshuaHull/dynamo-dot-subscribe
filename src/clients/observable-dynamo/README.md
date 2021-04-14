@@ -1,10 +1,10 @@
-# @dot-subscribe/observable-dynamo
+# @dynamo-dot-subscribe/observable-dynamo
 
 A very thin wrapper around the [AWS SDK v3 DynamoDB client](https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-dynamodb) which converts all of their commands to [Observables](https://rxjs-dev.firebaseapp.com/guide/observable). The API to use this package is identical to that of the original client - but wrapping with rxjs's `from()` is done for you.
 
 ## Installation
 
-> npm install @dot-subscribe/observable-dynamo
+> npm install @dynamo-dot-subscribe/observable-dynamo
 
 ## Features
 
