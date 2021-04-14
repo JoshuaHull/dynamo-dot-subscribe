@@ -19,7 +19,7 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-import { ObservableDynamoDBClient } from 'observable-dynamo-client-v3';
+import { ObservableDynamoDBClient } from '@dynamo-dot-subscribe/observable-dynamo';
 import { DynamoDBClientConfig } from '@aws-sdk/client-dynamodb';
 import { BehaviorSubject } from "rxjs";
 

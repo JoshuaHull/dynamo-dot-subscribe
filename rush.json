@@ -21,12 +21,13 @@
   ],
   "projects": [
     {
-      "packageName": "observable-dynamo-client-v3",
-      "projectFolder": "src/clients/observable-dynamo-client-v3"
+      "packageName": "@dynamo-dot-subscribe/observable-dynamo",
+      "projectFolder": "src/clients/observable-dynamo",
+      "shouldPublish": true
     },
     {
-      "packageName": "test-observable-dynamo-client-v3",
-      "projectFolder": "test/clients/observable-dynamo-client-v3"
+      "packageName": "@dynamo-dot-subscribe/observable-dynamo-tests",
+      "projectFolder": "test/clients/observable-dynamo"
     },
     {
       "packageName": "dynamo-dot-subscribe",

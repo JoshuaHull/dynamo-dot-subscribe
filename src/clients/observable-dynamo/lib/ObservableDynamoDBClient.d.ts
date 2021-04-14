@@ -4,5 +4,6 @@ export declare class ObservableDynamoDBClient {
     private client;
     get config(): DynamoDBClientResolvedConfig;
     constructor(config: DynamoDBClientConfig);
-    send(args: any, options: any): Observable<any>;
+    send(args: any, options?: any): Observable<any>;
+    destroy(): void;
 }

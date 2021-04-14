@@ -1,4 +1,4 @@
-import { ObservableDynamoDB } from 'observable-dynamo-client-v3';
+import { ObservableDynamoDB } from '@dynamo-dot-subscribe/observable-dynamo';
 import { EMPTY } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 

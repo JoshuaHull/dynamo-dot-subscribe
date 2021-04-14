@@ -1,6 +1,11 @@
 {
-  "name": "observable-dynamo-client-v3",
-  "version": "0.0.0",
+  "name": "@dynamo-dot-subscribe/observable-dynamo",
+  "author": {
+    "email": "josh.hull.w@gmail.com",
+    "name": "Joshua Hull",
+    "url": "https://github.com/JoshuaHull"
+  },
+  "version": "1.0.0",
   "main": "lib/index.js",
   "scripts": {
     "build": "rimraf ./lib/ && tsc"

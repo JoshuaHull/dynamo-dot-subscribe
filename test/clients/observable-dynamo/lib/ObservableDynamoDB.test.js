@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const observable_dynamo_client_v3_1 = require("observable-dynamo-client-v3");
+const observable_dynamo_1 = require("@dynamo-dot-subscribe/observable-dynamo");
 const rxjs_1 = require("rxjs");
 const operators_1 = require("rxjs/operators");
 const TEST_TABLE_NAME = 'ObservableDynamoDBTests';
 let client;
 beforeAll(done => {
-    client = new observable_dynamo_client_v3_1.ObservableDynamoDB({
+    client = new observable_dynamo_1.ObservableDynamoDB({
         region: 'ap-southeast-2',
         endpoint: 'http://localhost:8000'
     });

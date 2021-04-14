@@ -1,5 +1,10 @@
 {
-  "name": "test-observable-dynamo-client-v3",
+  "name": "@dynamo-dot-subscribe/observable-dynamo-tests",
+  "author": {
+    "email": "josh.hull.w@gmail.com",
+    "name": "Joshua Hull",
+    "url": "https://github.com/JoshuaHull"
+  },
   "version": "0.0.0",
   "main": "index.js",
   "scripts": {
@@ -7,7 +12,7 @@
     "test": "rush build && jest lib"
   },
   "dependencies": {
-    "observable-dynamo-client-v3": "~0.0.0",
+    "@dynamo-dot-subscribe/observable-dynamo": "~1.0.0",
     "rxjs": "~6.6.7"
   },
   "devDependencies": {

@@ -21,11 +21,11 @@
 */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RxjsDynamoDB = void 0;
-const observable_dynamo_client_v3_1 = require("observable-dynamo-client-v3");
+const observable_dynamo_1 = require("@dynamo-dot-subscribe/observable-dynamo");
 const rxjs_1 = require("rxjs");
 class RxjsDynamoDB {
     constructor(config) {
-        this._client = new observable_dynamo_client_v3_1.ObservableDynamoDBClient(config);
+        this._client = new observable_dynamo_1.ObservableDynamoDBClient(config);
     }
     sendQuery(query) {
         return new rxjs_1.BehaviorSubject(null);

@@ -1,4 +1,3 @@
-"use strict";
 /*
   GPL 3.0 License
 
@@ -19,20 +18,31 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ObservableDynamoDBClient = void 0;
-const client_dynamodb_1 = require("@aws-sdk/client-dynamodb");
-const rxjs_1 = require("rxjs");
-class ObservableDynamoDBClient {
-    constructor(config) {
-        this.client = new client_dynamodb_1.DynamoDBClient(config);
-    }
-    get config() {
-        return this.client.config;
-    }
-    send(args, options) {
-        return rxjs_1.from(this.client.send(args, options));
-    }
+
+import {
+  DynamoDBClient,
+  DynamoDBClientConfig,
+  DynamoDBClientResolvedConfig
+} from '@aws-sdk/client-dynamodb';
+import { HttpHandlerOptions as __HttpHandlerOptions } from '@aws-sdk/types';
+import { from, Observable } from 'rxjs';
+
+export class ObservableDynamoDBClient {
+  private client: DynamoDBClient;
+
+  public get config(): DynamoDBClientResolvedConfig {
+    return this.client.config;
+  }
+
+  constructor(config: DynamoDBClientConfig) {
+    this.client = new DynamoDBClient(config);
+  }
+
+  public send(args: any, options?: any): Observable<any> {
+    return from(this.client.send(args, options))
+  }
+
+  public destroy(): void {
+    this.client.destroy();
+  }
 }
-exports.ObservableDynamoDBClient = ObservableDynamoDBClient;
-//# sourceMappingURL=ObservableDynamoDBClient.js.map
