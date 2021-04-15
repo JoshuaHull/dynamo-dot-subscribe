@@ -19,22 +19,39 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-import { ObservableDynamoDBClient } from '@dynamo-dot-subscribe/observable-dynamo';
-import { DynamoDBClientConfig } from '@aws-sdk/client-dynamodb';
+import { GetItemCommandOptions, ObservableDynamoDBClient } from '@dynamo-dot-subscribe/observable-dynamo';
+import { AttributeValue, DynamoDBClientConfig, GetItemCommandInput } from '@aws-sdk/client-dynamodb';
 import { BehaviorSubject } from "rxjs";
+import { State } from './State';
+
+type DynamoItem = { [key: string]: AttributeValue } | undefined;
+type StateItem = NonNullable<DynamoItem>;
 
 export class RxjsDynamoDB {
   private _client: ObservableDynamoDBClient;
+  private _state: State<StateItem>;
 
-  constructor(config: DynamoDBClientConfig) {
+  constructor(config: DynamoDBClientConfig & MoreConfig) {
     this._client = new ObservableDynamoDBClient(config);
+    const toKey = (item: StateItem) => item
+      ? `${config.tableName}:${item[config.hashKey]}:${config.rangeKey ? item[config.rangeKey] : ''}`
+      : '';
+    this._state = new State<StateItem>(toKey);
   }
 
-  public sendQuery(query: any): BehaviorSubject<any> {
-    return new BehaviorSubject(null);
+  public getItem(
+    args: GetItemCommandInput,
+    options?: GetItemCommandOptions
+  ): BehaviorSubject<StateItem> {
+    // return this._client.send(new GetItemCommand(args), options);
+    if (!args.Key) throw 'Key cannot be undefined';
+    return this._state
+      .getItem(args.Key).pipe();
   }
+}
 
-  public sendCommand(command: any): BehaviorSubject<any> {
-    return new BehaviorSubject(null);
-  }
+export interface MoreConfig {
+  tableName: string;
+  hashKey: string;
+  rangeKey?: string;
 }

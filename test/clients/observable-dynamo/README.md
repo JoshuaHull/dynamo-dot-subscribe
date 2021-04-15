@@ -1,4 +1,4 @@
-# Testing @dot-subscribe/observable-dynamo
+# Testing @dynamo-dot-subscribe/observable-dynamo
 
 Test project for [Observable Dynamo DB](https://github.com/JoshuaHull/dynamo-dot-subscribe/tree/main/src/clients/observable-dynamo).
 
