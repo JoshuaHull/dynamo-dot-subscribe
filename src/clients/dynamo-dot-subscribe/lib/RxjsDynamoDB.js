@@ -22,16 +22,32 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RxjsDynamoDB = void 0;
 const observable_dynamo_1 = require("@dynamo-dot-subscribe/observable-dynamo");
-const rxjs_1 = require("rxjs");
+const operators_1 = require("rxjs/operators");
+const State_1 = require("./State");
 class RxjsDynamoDB {
     constructor(config) {
-        this._client = new observable_dynamo_1.ObservableDynamoDBClient(config);
+        this._client = new observable_dynamo_1.ObservableDynamoDB(config);
+        const toKey = (item) => item
+            ? `${config.tableName}:${item[config.hashKey]}:${config.rangeKey ? item[config.rangeKey] : ''}`
+            : '';
+        this._state = new State_1.State(toKey);
     }
-    sendQuery(query) {
-        return new rxjs_1.BehaviorSubject(null);
+    getItem(args, options) {
+        if (!args.Key)
+            throw 'GetItem requires a key';
+        return this._state.getSubject(args.Key) ||
+            this._client.getItem(args, options).pipe(operators_1.filter(output => !!output.Item), operators_1.mergeMap(output => this._state.setSubject(output.Item)));
     }
-    sendCommand(command) {
-        return new rxjs_1.BehaviorSubject(null);
+    putItem(args, options) {
+        if (!args.Item)
+            throw 'PutItem requires an item';
+        return this._client.putItem(args, options).pipe(operators_1.mergeMap(() => this._state.setSubject(args.Item)));
+    }
+    ;
+    scan(args, options) {
+        return this._client
+            .scan(args, options)
+            .pipe(operators_1.mergeMap(output => (output.Items || []).map(item => this._state.getSubject(item) || this._state.setSubject(item))), operators_1.zipAll());
     }
 }
 exports.RxjsDynamoDB = RxjsDynamoDB;

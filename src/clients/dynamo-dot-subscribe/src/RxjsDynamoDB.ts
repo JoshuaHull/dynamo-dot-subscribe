@@ -19,20 +19,29 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-import { GetItemCommandOptions, ObservableDynamoDBClient } from '@dynamo-dot-subscribe/observable-dynamo';
-import { AttributeValue, DynamoDBClientConfig, GetItemCommandInput } from '@aws-sdk/client-dynamodb';
-import { BehaviorSubject } from "rxjs";
+import { GetItemCommandOptions, ObservableDynamoDB, PutItemCommandOptions, ScanCommandOptions } from '@dynamo-dot-subscribe/observable-dynamo';
+import { AttributeValue, DynamoDBClientConfig, GetItemCommandInput, PutItemCommand, PutItemCommandInput, ScanCommand, ScanCommandInput } from '@aws-sdk/client-dynamodb';
+import { BehaviorSubject, Observable } from "rxjs";
+import { combineAll, filter, map, mergeAll, mergeMap, zipAll } from 'rxjs/operators';
 import { State } from './State';
 
 type DynamoItem = { [key: string]: AttributeValue } | undefined;
 type StateItem = NonNullable<DynamoItem>;
 
+interface MoreConfig {
+  tableName: string;
+  hashKey: string;
+  rangeKey?: string;
+}
+
+export type Config = DynamoDBClientConfig & MoreConfig;
+
 export class RxjsDynamoDB {
-  private _client: ObservableDynamoDBClient;
+  private _client: ObservableDynamoDB;
   private _state: State<StateItem>;
 
-  constructor(config: DynamoDBClientConfig & MoreConfig) {
-    this._client = new ObservableDynamoDBClient(config);
+  constructor(config: Config) {
+    this._client = new ObservableDynamoDB(config);
     const toKey = (item: StateItem) => item
       ? `${config.tableName}:${item[config.hashKey]}:${config.rangeKey ? item[config.rangeKey] : ''}`
       : '';
@@ -42,16 +51,36 @@ export class RxjsDynamoDB {
   public getItem(
     args: GetItemCommandInput,
     options?: GetItemCommandOptions
-  ): BehaviorSubject<StateItem> {
-    // return this._client.send(new GetItemCommand(args), options);
-    if (!args.Key) throw 'Key cannot be undefined';
-    return this._state
-      .getItem(args.Key).pipe();
+  ): Observable<StateItem> {
+    if (!args.Key) throw 'GetItem requires a key';
+    return this._state.getSubject(args.Key) ||
+      this._client.getItem(args, options).pipe(
+        filter(output => !!output.Item),
+        mergeMap(output => this._state.setSubject(output.Item!)),
+      );
   }
-}
 
-export interface MoreConfig {
-  tableName: string;
-  hashKey: string;
-  rangeKey?: string;
+  public putItem(
+    args: PutItemCommandInput,
+    options?: PutItemCommandOptions
+  ): Observable<StateItem> {
+    if (!args.Item) throw 'PutItem requires an item';
+    return this._client.putItem(args, options).pipe(
+      mergeMap(() => this._state.setSubject(args.Item!))
+    );
+  };
+
+  public scan(
+    args: ScanCommandInput,
+    options?: ScanCommandOptions
+  ): Observable<StateItem[]> {
+    return this._client
+      .scan(args, options)
+      .pipe(
+        mergeMap(output => (output.Items || []).map(
+          item => this._state.getSubject(item) || this._state.setSubject(item)
+        )),
+        zipAll()
+      );
+  }
 }
